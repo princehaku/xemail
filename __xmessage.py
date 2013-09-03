@@ -6,7 +6,6 @@
 import email
 import re
 
-
 class XMessage:
     def __init__(self, msg_str):
         self.msg = email.message_from_string(msg_str)

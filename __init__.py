@@ -40,17 +40,13 @@ class XEmail:
         return data
 
     def searchBox(self, mailbox='Inbox', filters='ALL'):
-        # print self.getMailbox(mailbox)
         self.M.select(self.getMailbox(mailbox))
-        # self.M.select(mailbox)
-        # print self.M.status('INBOX', '(MESSAGES UNSEEN)')
         typ, data = self.M.search(None, filters)
         ids = (data[0].split())
         return ids
 
     def getMessage(self, mail_id):
         typ, data = self.M.fetch(mail_id, '(RFC822)')
-        # print data[0][1]
         return XMessage(data[0][1])
 
     def delMessage(self, mail_id):
